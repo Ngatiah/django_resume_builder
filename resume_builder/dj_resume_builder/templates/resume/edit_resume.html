@@ -1,0 +1,14 @@
+{% extends "resume/main.html" %}
+{% block content %}
+{% comment %} <body style="padding:20px;"> {% endcomment %}
+    {% comment %} <h1 class="mt-2" style="text-align:center;font-weight:bolder;color:steelblue;">Edit Iyan's Resume Builder!!!</h1>
+    <hr class="mt-0 mb-4"> {% endcomment %}
+    <form method="POST" class="post-form" enctype="multipart/form-data" action="{% url 'resume_edit' form.instance.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type='Submit' class="btn-secondary">Save</button>
+        <a href="{% url 'resume_detail' form.instance.id %}" class="btn btn-secondary">Cancel</a>
+    </form> 
+
+{% endblock content %}

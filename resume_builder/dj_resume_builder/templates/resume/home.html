@@ -1,0 +1,91 @@
+{% extends "resume/main.html" %}
+{% block content%}
+{% comment %} <body id="top"> {% endcomment %}
+    <div id="cv" class="instaFade">
+        {% for resume in resume_data %}
+        <div class="mainDetails">
+            <div id="headshot" class="quickFade">
+                <img src="{{ resume.image.url }}" alt="profile-pic" />
+            </div>
+            <div id="name">
+                <h1 class="quickFade delayTwo">{{ resume.name }}</h1>
+                <h2 class="quickFade delayThree">SOFTWARE DEVELOPER</h2>
+            </div>
+            <div id="contactDetails" class="quickFade delayFour">
+                <ul>
+                    <li>email: {{ resume.email }}</li>
+                    <li>telephone: {{ resume.mobile_no }}</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div id="mainArea" class="quickFade delayFive">
+            <section>
+                <article>
+                    <div class="sectionTitle">
+                        <h1>Personal Profile</h1>
+                    </div>
+                    <div class="sectionContent">
+                        <p>Address: {{ resume.address }}</p>
+                    </div>
+                </article>
+                <div class="clear"></div>
+            </section>
+
+            <section>
+                <div class="sectionTitle">
+                    <h1>{{ resume.experiences_title }}</h1>
+                </div>
+                <div class="sectionContent">
+                    <article>
+                        <p>{{ resume.experiences }}</p>
+                        {% comment %} {% for experience in resume_data.experiences %} {%_topicsubDetail">{{ resume_data.experience_sub_topic }}</p> 
+                        {% comment %} {% endfor %} {% endcomment %}
+                    </article>
+                </div>
+                <div class="clear"></div>
+            </section>
+
+            <section>
+                <div class="sectionTitle">
+                    <h1>{{ resume.skills_title }}</h1>
+                </div>
+                <div class="sectionContent">
+                    <ul class="keySkills">
+                        {% comment %} <li class="subDetail">{{ resume_data.skills_sub_topic }}</li> {% endcomment %}
+                        <li>{{ resume.skills }}</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </section>
+
+            <section>
+                <div class="sectionTitle">
+                    <h1>{{ resume.education_title }}</h1>
+                </div>
+                <div class="sectionContent">
+                    <article>
+                        {% comment %} {% for edu in resume_data.education %} {% endcomment %}
+                            {% comment %} <h2 class="subDetail">{{ resume_data.education_sub_topic }}</h2> {% endcomment %}
+                            <p>{{ resume.education }}</p>
+                        {% comment %} {% endfor %} {% endcomment %}
+                    </article>
+                </div>
+                <div class="clear"></div>
+            </section>
+        </div>
+
+        <div id="bottom-links">
+
+            <!-- Link to generate PDF -->
+            <a href="{% url 'generate_pdf' resume.id %}">Download PDF</a>
+
+            <!-- Link to edit resume -->
+            <a href="{% url 'resume_edit' resume.id %}">Edit Resume</a>  
+
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock content %}

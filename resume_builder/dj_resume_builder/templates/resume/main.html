@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='en'>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resume Builder</title>
+    <meta name="description" content="Resume Builder with Iyan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'resume/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'resume/css/styles.css' %}">
+
+    
+</head>
+    <body>
+
+    {% include 'resume/navbar.html' %}
+    {% if messages %}
+    <ul class="messages">
+       {% for message in messages %}
+       
+       <li>{{ message }}</li>
+       
+       {% endfor %}
+    </ul>
+    {% endif %}
+    
+    
+    {% block content %}
+    
+    
+
+    {% endblock content %}
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
