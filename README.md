@@ -7,7 +7,7 @@
 --> Clone the repository using the command below :
 git clone https://github.com/Ngatiah/django_resume_builder.git
 
-```
+```bash
 --> Install a virtual environment tools(if not installed):
 pip install virtualenv
 
@@ -16,7 +16,7 @@ pip install virtualenv
 cd resume_builder
 
 ```
-```
+```bash
 
 -->Then we create our virtual environment using either venv or virtualenv.
 python -m venv venv (for venv)
