@@ -12,7 +12,7 @@ git clone https://github.com/Ngatiah/django_resume_builder.git
 pip install virtualenv
 
 --> Move into the directory where we have the project files : 
-```bash
+```
 cd resume_builder
 
 ```
